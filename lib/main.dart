@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:havia_v1/screens/Loginscreen.dart';
+import 'package:havia_v1/screens/authentication/phoneauth_screen.dart';
 import 'package:havia_v1/screens/splashscreen.dart';
 
 
@@ -15,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return FutureBuilder(
       //Replace thr 3 second delay with your initilization code;
-      future: Future.delayed( Duration (seconds: 3)), // after 3 seconds screen wil move to next screen
+      future: Future.delayed( const Duration (seconds: 3)), // after 3 seconds screen wil move to next screen
       builder: (context, AsyncSnapshot snapshot) {
         // Show Splash screen while waiting app reloads.
 
@@ -25,8 +27,20 @@ class MyApp extends StatelessWidget {
 
         else {
           return  MaterialApp(
-            home: Scaffold(
-                body: Center(child: Text('App loader '))),
+            debugShowCheckedModeBanner: false, // to remove debug banner
+            theme: ThemeData(
+              primaryColor: Colors.white,
+              fontFamily: 'Lato'
+
+            ),
+            // need to change this to initial screen, means starting
+            home: Loginscreen(),
+            routes: {
+              // we add screen here for easy navigation
+              //its a string
+              Loginscreen.id: (context) =>  Loginscreen(),
+              PhoneAuthScreen.id: (context) =>  PhoneAuthScreen(),
+            },
           );
         }
       },

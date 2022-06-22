@@ -1,42 +1,38 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 
 class splashscreen  extends StatelessWidget {
-
-
   @override
   Widget build(BuildContext context) {
-
     const colorizeColors = [
-      Colors.purple,
-      Colors.blue,
-      Colors.yellow,
-      Colors.red,
+      Colors.teal,
+      Colors.white ,
     ];
-
     const colorizeTextStyle = TextStyle(
-      fontSize: 50.0,
-      fontFamily: 'Horizon',
+      fontSize: 48,
+      fontFamily: 'Lato',
     );
 
     return  Scaffold(
-      backgroundColor: Colors.white54,
+      backgroundColor: Colors.teal.shade100,
       body: Center(
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
-              Image.asset('assets/images.png',
-              color: Colors.white,
+              Image.asset('assets/images/h.png' ,color: Colors.teal.shade800,
 
               ),
 
-            SizedBox(height: 11,),
+            SizedBox(height: 2,),
 
         SizedBox(
-          width: 250.0,
+
+          width: 200,
           child: AnimatedTextKit(
             animatedTexts: [
               ColorizeAnimatedText(
-                'Sell Or Buy',
+                'Sell & Buy',
                 textStyle: colorizeTextStyle,
                 colors: colorizeColors,
               ),
